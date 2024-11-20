@@ -52,6 +52,12 @@ body {
     }
 }
 
+.intro{
+    font-size: 1.3rem;
+    max-width: 1200px;
+    margin:auto
+}
+
 .title {
     font-size: 42px;
     margin-bottom: 30px;

@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tablón de anuncios</title>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
 </head>
+
 <body>
     <nav class="nav-container">
         <div class="nav-content">
-            <a href="#" class="nav-logo">Tablón de anuncios</a>
+            <a href="#" class="nav-logo">Gremio de Aventureros</a>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -26,7 +29,7 @@
     <div class="board-container">
         <h1>🗡️ Tablón de misiones del Gremio de Aventureros ⚔️</h1>
         <div class="notice-board" id="noticeBoard"></div>
-        
+
         <div class="quest-form">
             <h2>Publicar nueva misión</h2>
             <form id="questForm">
@@ -37,12 +40,15 @@
 
                 <div class="form-group">
                     <label for="questDescription">Detalles de la misión</label>
-                    <textarea id="questDescription" placeholder="Detalla la misión... Sé especifico con los desafíos y requerimientos." required rows="5"></textarea>
+                    <textarea id="questDescription"
+                        placeholder="Detalla la misión... Sé especifico con los desafíos y requerimientos." required
+                        rows="5"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="reward">Recompensas</label>
-                    <input type="text" id="reward" placeholder="Oro, objetos mágicos, títulos u otros tesoros..." required>
+                    <input type="text" id="reward" placeholder="Oro, objetos mágicos, títulos u otros tesoros..."
+                        required>
                 </div>
 
                 <div class="form-group">
@@ -53,7 +59,7 @@
                         <input type="radio" id="star2" name="difficulty" value="4">
                         <label for="star2" title="Veterano">★</label>
                         <input type="radio" id="star3" name="difficulty" value="3">
-                        <label for="star3" title="Adventurer">★</label>
+                        <label for="star3" title="Aventurero">★</label>
                         <input type="radio" id="star4" name="difficulty" value="2">
                         <label for="star4" title="Aprendiz">★</label>
                         <input type="radio" id="star5" name="difficulty" value="1">
@@ -65,7 +71,10 @@
             </form>
         </div>
     </div>
-    <script src="javascript/main.js"></script>
+    <script type="module" src="javascript/main.js"></script>
     <script src="javascript/navJs.js"></script>
+
+
 </body>
+
 </html>
