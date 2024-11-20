@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     let quests = JSON.parse(localStorage.getItem('quests')) || initialQuests;
-    
+
     const noticeBoard = document.getElementById('noticeBoard');
     const questForm = document.getElementById('questForm');
 
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function addNewQuest(e) {
         e.preventDefault();
-        
+
         const newQuest = {
             title: document.getElementById('questTitle').value,
             description: document.getElementById('questDescription').value,

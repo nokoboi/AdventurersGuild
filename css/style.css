@@ -2,7 +2,6 @@
 
 body {
     margin: 0;
-    padding: 20px;
     background: #1a0f0f;
     background-image:
         url('https://www.transparenttextures.com/patterns/dark-wood.png');
@@ -131,6 +130,7 @@ input:focus, textarea:focus {
 .star-rating {
     display: flex;
     gap: 15px;
+    flex-direction: row-reverse;
     padding: 15px 0;
     justify-content: center;
 }
