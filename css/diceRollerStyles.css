@@ -1,0 +1,475 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Pirata+One&display=swap');
+
+
+body {
+    background: url('https://cdnjs.cloudflare.com/ajax/libs/curtainsjs/8.1.4/examples/medias/displacement.jpg') center center fixed;
+    background-color: #1a1a1a;
+    color: #d4af37;
+    font-family: 'MedievalSharp', cursive;
+    margin: 0;
+    
+}
+
+.mainDice{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+/* Partículas mágicas flotantes */
+.magic-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    background: radial-gradient(circle, #ffd700 10%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: float 6s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+    }
+}
+
+.title {
+    font-size: 42px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #ffd700;
+    position: relative;
+    z-index: 2;
+}
+
+/* Efecto de portal mágico para el título */
+.title::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255, 107, 26, 0.2) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: portal 3s infinite;
+    z-index: -1;
+}
+
+@keyframes portal {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 0.5;
+    }
+}
+
+.dice-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 20px;
+    justify-content: center;
+    perspective: 1000px;
+    position: relative;
+    z-index: 2;
+}
+
+.dice {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #2c1810, #4a2618);
+    border: 3px solid #8b4513;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease;
+}
+
+/* Aura mágica alrededor de los dados */
+.dice::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+    border-radius: 15px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.dice:hover::after {
+    opacity: 1;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.1); opacity: 0.6; }
+    100% { transform: scale(1); opacity: 0.3; }
+}
+
+.dice.rolling {
+    animation: complex-roll 1s infinite;
+}
+
+/* Animación de giro más compleja */
+@keyframes complex-roll {
+    0% { 
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); 
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+    25% { 
+        transform: rotateX(90deg) rotateY(45deg) rotateZ(45deg); 
+        box-shadow: 0 0 30px rgba(255, 107, 26, 0.6);
+    }
+    50% { 
+        transform: rotateX(180deg) rotateY(90deg) rotateZ(90deg); 
+        box-shadow: 0 0 40px rgba(255, 215, 0, 0.7);
+    }
+    75% { 
+        transform: rotateX(270deg) rotateY(135deg) rotateZ(135deg); 
+        box-shadow: 0 0 30px rgba(255, 107, 26, 0.6);
+    }
+    100% { 
+        transform: rotateX(360deg) rotateY(180deg) rotateZ(180deg); 
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+}
+
+.dice.eliminated {
+    opacity: 0.7;
+    background: linear-gradient(45deg, #4a0000, #800000);
+    border-color: #8b0000;
+    animation: vanish 1s forwards;
+}
+
+/* Animación de eliminación con efecto de magia */
+@keyframes vanish {
+    0% { 
+        transform: scale(1) rotate(0deg); 
+        box-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+    }
+    50% { 
+        transform: scale(1.2) rotate(180deg); 
+        box-shadow: 0 0 40px rgba(255, 0, 0, 0.7);
+    }
+    100% { 
+        transform: scale(0.8) rotate(360deg); 
+        box-shadow: 0 0 20px rgba(139, 0, 0, 0.5);
+    }
+}
+.buttonRollDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    padding: 15px 30px;
+    font-size: 24px;
+    font-family: 'Luminari', 'Fantasy', cursive;
+    background: linear-gradient(45deg, #8b4513, #a0522d);
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+}
+
+/* Efecto de energía mágica en el botón */
+.button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    animation: rotate 3s infinite linear;
+    z-index: -1;
+}
+
+@keyframes rotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.button:hover {
+    transform: scale(1.05);
+    animation: glow 1s infinite;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(255, 107, 26, 0.7); }
+    100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
+}
+
+.results {
+    text-align: center;
+    font-size: 32px;
+    margin: 20px;
+    color: #ffd700;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #8b4513;
+    position: relative;
+    z-index: 2;
+}
+
+.scroll {
+    position: relative;
+    padding: 20px;
+    margin: 20px 0;
+    background: linear-gradient(rgba(73, 43, 13, 0.8), rgba(139, 69, 19, 0.8));
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* Runas mágicas flotantes */
+.magical-runes {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.rune {
+    position: absolute;
+    color: rgba(255, 215, 0, 0.3);
+    font-size: 24px;
+    animation: float-rune 10s infinite linear;
+}
+
+@keyframes float-rune {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.button {
+    padding: 15px 30px;
+    font-size: 24px;
+    font-family: 'Luminari', 'Fantasy', cursive;
+    background: linear-gradient(45deg, #8b4513, #a0522d);
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    margin: 0 10px;
+}
+
+.dice-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #8b4513;
+}
+
+.dice-count {
+    font-size: 24px;
+    color: #ffd700;
+    text-shadow: 0 0 10px #ff6b1a;
+}
+
+.control-button {
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: 'Luminari', 'Fantasy', cursive;
+    background: linear-gradient(45deg, #2c1810, #4a2618);
+    color: #ffd700;
+    border: 2px solid #ffd700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.control-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.control-button:disabled {
+    background: linear-gradient(45deg, #4a4a4a, #666666);
+    border-color: #888888;
+    cursor: not-allowed;
+    transform: scale(1);
+}
+
+/* Estilos del nav */
+.nav-container {
+    background: #2c1810;
+    border-bottom: 3px solid #8b4513;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.nav-logo {
+    color: #ffd700;
+    font-family: 'Pirata One', cursive;
+    font-size: 2em;
+    text-decoration: none;
+    text-shadow: 0 0 10px #ff6b0080;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+    color: #fff;
+    text-shadow: 0 0 15px #ffd700;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item a {
+    color: #f4e4bc;
+    text-decoration: none;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.2em;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-item a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ffd700;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-item a:hover::before {
+    transform: scaleX(1);
+}
+
+.nav-item a:hover {
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #ffd700;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #2c1810;
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        border-bottom: 3px solid #8b4513;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-item a {
+        display: block;
+        padding: 12px;
+    }
+}

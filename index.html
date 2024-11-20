@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablón de anuncios</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">Tablón de anuncios</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="diceRoller.html">Cámara Arcana</a></li>
+                <li class="nav-item"><a href="index.html">Tablón de encargos</a></li>
+                <!-- <li class="nav-item"><a href="#guilds">Guilds</a></li>
+                <li class="nav-item"><a href="#tavern">Tavern</a></li> -->
+            </ul>
+        </div>
+    </nav>
+    <div class="board-container">
+        <h1>🗡️ Tablón de misiones del Gremio de Aventureros ⚔️</h1>
+        <div class="notice-board" id="noticeBoard"></div>
+        
+        <div class="quest-form">
+            <h2>Publicar nueva misión</h2>
+            <form id="questForm">
+                <div class="form-group">
+                    <label for="questTitle">Título de la misión</label>
+                    <input type="text" id="questTitle" placeholder="Introduce el titulo de la misión" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="questDescription">Detalles de la misión</label>
+                    <textarea id="questDescription" placeholder="Detalla la misión... Sé especifico con los desafíos y requerimientos." required rows="5"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="reward">Recompensas</label>
+                    <input type="text" id="reward" placeholder="Oro, objetos mágicos, títulos u otros tesoros..." required>
+                </div>
+
+                <div class="form-group">
+                    <label>Difictultad</label>
+                    <div class="star-rating">
+                        <input type="radio" id="star1" name="difficulty" value="1" required>
+                        <label for="star1" title="Novice">★</label>
+                        <input type="radio" id="star2" name="difficulty" value="2">
+                        <label for="star2" title="Apprentice">★</label>
+                        <input type="radio" id="star3" name="difficulty" value="3">
+                        <label for="star3" title="Adventurer">★</label>
+                        <input type="radio" id="star4" name="difficulty" value="4">
+                        <label for="star4" title="Veteran">★</label>
+                        <input type="radio" id="star5" name="difficulty" value="5">
+                        <label for="star5" title="Legendary">★</label>
+                    </div>
+                </div>
+
+                <button type="submit">Publica la misión</button>
+            </form>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <script src="javascript/navJs.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cámara Arcana de runas</title>
+    <link rel="stylesheet" href="/css/diceRollerStyles.css">
+</head>
+
+<body>
+    <nav class="nav-container">
+        <div class="nav-content">
+            <a href="#" class="nav-logo">Tablón de anuncios</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="diceRoller.html">Cámara Arcana</a></li>
+                <li class="nav-item"><a href="index.html">Tablón de encargos</a></li>
+                <!-- <li class="nav-item"><a href="#guilds">Guilds</a></li>
+                <li class="nav-item"><a href="#tavern">Tavern</a></li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <div class="magic-particles" id="particles"></div>
+    <div class="magical-runes" id="runes"></div>
+
+    <div class="mainDice">
+        <h1 class="title">Cámara Arcana de runas</h1>
+        <div class="controls">
+            <div class="dice-controls">
+                <button id="removeDice" class="control-button">-</button>
+                <span id="diceCount" class="dice-count">4 runas</span>
+                <button id="addDice" class="control-button">+</button>
+            </div>
+            <div class="buttonRollDiv">
+                <button id="rollButton" class="button">Invoca las runas</button>
+            </div>
+
+            <div class="scroll">
+                <div id="results" class="results"></div>
+            </div>
+        </div>
+        <div id="diceContainer" class="dice-container"></div>
+    </div>
+
+
+    <script src="javascript/diceRoller.js"></script>
+    <script src="javascript/navJs.js"></script>
+</body>
+
+</html>

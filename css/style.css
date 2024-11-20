@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&family=Pirata+One&display=swap');
+
+body {
+    margin: 0;
+    padding: 20px;
+    background: #1a0f0f;
+    background-image:
+        url('https://www.transparenttextures.com/patterns/dark-wood.png');
+    font-family: 'MedievalSharp', cursive;
+    color: #2c1810;
+    min-height: 100vh;
+}
+
+.board-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #ffd700;
+    font-size: 3em;
+    text-shadow: 0 0 10px #ff6b0080, 2px 2px 4px rgba(0, 0, 0, 0.8);
+    font-family: 'Pirata One', cursive;
+    letter-spacing: 3px;
+    margin-bottom: 40px;
+}
+
+.notice-board {
+    background: #754c24;
+    padding: 30px;
+    border: 20px solid #4a2f17;
+    border-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h100v100H0z' fill='%234a2f17'/%3E%3Cpath d='M20 20h60v60H20z' fill='%23392512'/%3E%3C/svg%3E") 30;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+}
+
+.quest-notice {
+    background: #f4e4bc;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23e6d5aa' d='M0 0h100v100H0z'/%3E%3C/svg%3E");
+    padding: 25px;
+    border-radius: 8px;
+    position: relative;
+    transform: rotate(-1deg);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    border: 1px solid #8b4513;
+}
+
+.quest-notice::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 2px solid rgba(139, 69, 19, 0.3);
+    border-radius: 5px;
+    pointer-events: none;
+}
+
+.quest-form {
+    background: linear-gradient(45deg, #2c1810, #4a2f17);
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    border: 3px solid #8b4513;
+    position: relative;
+    overflow: hidden;
+}
+
+.quest-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23ffffff' fill-opacity='0.05' d='M0 0h100v100H0z'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+.quest-form h2 {
+    color: #ffd700;
+    text-align: center;
+    margin: 0 0 30px 0;
+    font-size: 2.5em;
+    font-family: 'Pirata One', cursive;
+    text-shadow: 0 0 10px #ff6b0080;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    color: #ffd700;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #8b4513;
+    border-radius: 8px;
+    background: rgba(244, 228, 188, 0.9);
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.1em;
+    box-sizing: border-box;
+    color: #2c1810;
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.star-rating {
+    display: flex;
+    gap: 15px;
+    padding: 15px 0;
+    justify-content: center;
+}
+
+.star-rating input[type="radio"] {
+    display: none;
+}
+
+.star-rating label {
+    cursor: pointer;
+    font-size: 2.5em;
+    color: #8b4513;
+    transition: all 0.3s ease;
+}
+
+.star-rating label:hover,
+.star-rating label:hover ~ label,
+.star-rating input:checked ~ label {
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+button[type="submit"] {
+    background: linear-gradient(45deg, #8b0000, #a52a2a);
+    color: #ffd700;
+    border: none;
+    cursor: pointer;
+    font-size: 1.3em;
+    padding: 20px;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-family: 'MedievalSharp', cursive;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 215, 0, 0.2),
+        transparent
+    );
+    transition: 0.5s;
+}
+
+button[type="submit"]:hover::before {
+    left: 100%;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(45deg, #a52a2a, #cc0000);
+}
+
+.quest-notice.claimed {
+    background: #d3d3d3;
+    opacity: 0.8;
+}
+
+.quest-notice.claimed::after {
+    content: "SOLICITADA";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    font-size: 3em;
+    color: #8b0000;
+    border: 5px solid #8b0000;
+    padding: 10px;
+    pointer-events: none;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes addQuest {
+    from {
+        transform: translateY(-50px) rotate(-3deg);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) rotate(-1deg);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .board-container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    .quest-form {
+        padding: 20px;
+    }
+}
+
+.claim-btn {
+    background: linear-gradient(45deg, #006400, #008000);
+    color: #f4e4bc;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    width: 100%;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.claim-btn:hover:not(:disabled) {
+    background: linear-gradient(45deg, #008000, #00a000);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.claim-btn:disabled {
+    background: linear-gradient(45deg, #666, #888);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Estilos del nav */
+.nav-container {
+    background: #2c1810;
+    border-bottom: 3px solid #8b4513;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    padding: 0 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+}
+
+.nav-logo {
+    color: #ffd700;
+    font-family: 'Pirata One', cursive;
+    font-size: 2em;
+    text-decoration: none;
+    text-shadow: 0 0 10px #ff6b0080;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+    color: #fff;
+    text-shadow: 0 0 15px #ffd700;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item a {
+    color: #f4e4bc;
+    text-decoration: none;
+    font-family: 'MedievalSharp', cursive;
+    font-size: 1.2em;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-item a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ffd700;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav-item a:hover::before {
+    transform: scaleX(1);
+}
+
+.nav-item a:hover {
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #ffd700;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #2c1810;
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        border-bottom: 3px solid #8b4513;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-item a {
+        display: block;
+        padding: 12px;
+    }
+}
