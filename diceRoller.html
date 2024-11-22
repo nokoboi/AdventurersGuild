@@ -56,6 +56,24 @@
 
         <h2>¡Pero no te preocupes! La Cámara Arcana de Runas puede hacer esto por ti.</h2>
     </div>
+    
+    <div class="class-selector" >
+        <select id="dndClass" name="dndClass" class="medieval-select">
+            <option value="barbaro">Bárbaro</option>
+            <option value="bardo">Bardo</option>
+            <option value="brujo">Brujo</option>
+            <option value="clerigo">Clérigo</option>
+            <option value="druida">Druida</option>
+            <option value="guerrero">Guerrero</option>
+            <option value="hechicero">Hechicero</option>
+            <option value="ladron">Pícaro</option>
+            <option value="monje">Monje</option>
+            <option value="paladin">Paladín</option>
+            <option value="explorador">Explorador</option>
+            <option value="mago">Mago</option>
+        </select>
+    </div>
+
     <div class="mainDice">
         <h1 class="title">Cámara Arcana de runas</h1>
         <div class="controls">
@@ -75,6 +93,18 @@
         <div id="diceContainer" class="dice-container"></div>
     </div>
 
+    <div class="tablaFlex">
+        <table id="resultsTable" class="medieval-table">
+            <thead>
+                <tr>
+                    <th>Valor</th>
+                    <th>Recomendación</th>
+                    <th>Comentarios</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
 
     <script src="javascript/diceRoller.js"></script>
     <script src="javascript/navJs.js"></script>
